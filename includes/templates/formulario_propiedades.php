@@ -1,0 +1,40 @@
+<fieldset>
+    <legend>Informacion General</legend>
+
+    <label for="titulo">Titulo:</label>
+    <input type="text" id="titulo" placeholder="Titulo de la Propiedad" name="titulo" value="<?php echo s( $propiedad->titulo ); ?>">
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" placeholder="Precio de la propiedad" name="precio" value="<?php echo s( $propiedad->precio ); ?>">
+
+    <label for="imagen">Imagen:</label>
+    <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
+
+    <label for="descripcion">Descripcion:</label>
+    <textarea id="descripcion" name="descripcion"><?php echo s( $propiedad->descripcion ); ?></textarea>
+</fieldset>
+
+<fieldset>
+    <legend>Detalles de la Propiedad</legend>
+
+    <label for="habitaciones">Habitaciones:</label>
+    <input type="number" id="habitaciones" name="habitaciones" placeholder="Cantidad de habitaciones" min="0" max="9" value="<?php echo s( $propiedad->habitaciones ); ?>">
+
+    <label for="wc">Baños:</label>
+    <input type="number" id="wc" name="wc" placeholder="Cantidad de baños" min="0" max="9" value="<?php echo s( $propiedad->wc ); ?>">
+
+    <label for="estacionamiento">Estacionamiento:</label>
+    <input type="number" id="estacionamiento" name="estacionamiento" placeholder="Cantidad de estacionamientos" min="0" max="9" value="<?php echo s( $propiedad->estacionamiento ); ?>">
+</fieldset>
+
+<fieldset>
+    <legend>Vendedor</legend>
+    
+    <select name="vendedorId">
+        <option value="">-- Seleccione --</option>
+        <?php while( $vendedor = mysqli_fetch_assoc($res) ): ?>
+            <option  <?php echo $vendedorId === $vendedor['id'] ? 'selected' : ''; ?>  value="<?php echo s( $propiedad->vendedor['id'] ); ?>"><?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?></option>
+
+        <?php endwhile; ?>
+    </select>
+</fieldset>
