@@ -7,7 +7,7 @@ define('CARPETA_IMAGENES', __DIR__ . '/../imagenes/');
 // Incluir templates al codigo
 
 function incluirTemplate( string  $nombre, bool $inicio = false ) {
-    include TEMPLATES_URL . "/${nombre}.php"; 
+    include TEMPLATES_URL . "/$nombre.php"; 
 }
 
 // Iniciar sesion
