@@ -1,6 +1,6 @@
 <?php
     $db = conectarDB(); // Importar la conexion
-    $query = "SELECT * FROM propiedades LIMIT ${limite}"; // consultar base de datos
+    $query = "SELECT * FROM propiedades LIMIT $limite"; // consultar base de datos
     $resultado = mysqli_query($db, $query); // obtener resultados
 ?>
 
